@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import path from 'path';
+import { log } from 'console';
 
 const app = express();
 app.use(cors());
@@ -17,7 +18,6 @@ function getRandomNum(min: number, max: number): number {
 
 // API route
 app.use('/api/hitme', (req: Request, res: Response) => {
-
     res.json({ number: getRandomNum(1, 10) });
 });
 
