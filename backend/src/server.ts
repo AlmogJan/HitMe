@@ -11,9 +11,14 @@ app.use(express.static(path.resolve(__dirname, '../public')));
 
 const port = process.env.PORT || 3030;
 
+function getRandomNum(min: number, max: number): number {
+    return Math.floor(Math.random() * (max - min) + min)
+}
+
 // API route
 app.use('/api/hitme', (req: Request, res: Response) => {
-    res.json({ message: "hi from server!" });
+
+    res.json({ number: getRandomNum(1, 10) });
 });
 
 // Serve index.html for all other routes
